@@ -19,11 +19,49 @@
             cursor: pointer;
             border-radius: 5px;
         }
+        /* The modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            padding-top: 60px;
+        }
+
+        /* Modal Content/Box */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
 
-<a href="#" class="button">Crops</a>
+<a href="#" class="button" onclick="openModal('crops')">Crops</a>
 <a href="#" class="button">Blocks</a>
 <a href="#" class="button">Totems</a>
 <a href="#" class="button">Industrial</a>
@@ -33,6 +71,61 @@
 <a href="#" class="button">Slime Island</a>
 <a href="#" class="button">Tools</a>
 <a href="#" class="button">Ore</a>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Put Items:</h2>
+        <ul id="cropsItems">
+            <!-- Items will be added here -->
+        </ul>
+    </div>
+</div>
+
+<script>
+    // Get the modal
+    var modal = document.getElementById('myModal');
+
+    // Function to open the modal and populate items
+    function openModal(category) {
+        modal.style.display = "block";
+        var items = {
+            "crops": [
+                { name: "Wheat", value: "10" },
+                { name: "Tomato", value: "15" },
+                { name: "Carrot", value: "20" },
+                { name: "Berry", value: "25" },
+                { name: "Onion", value: "30" },
+                { name: "Red Flowers", value: "35" },
+                { name: "Yellow Flowers", value: "40" },
+                { name: "Blue Flowers", value: "45" },
+                { name: "Tall Grass", value: "50" }
+            ]
+            // Add other categories and items similarly
+        };
+        var list = document.getElementById(category + "Items");
+        list.innerHTML = "";
+        items[category].forEach(function(item) {
+            var listItem = document.createElement("li");
+            listItem.textContent = "Put Items: " + item.name + " Coin Value: " + item.value;
+            list.appendChild(listItem);
+        });
+    }
+
+    // Function to close the modal
+    function closeModal() {
+        modal.style.display = "none";
+    }
+
+    // Close the modal when clicked outside of it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
 
 </body>
 </html>
