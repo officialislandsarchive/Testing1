@@ -112,44 +112,43 @@
       <button onclick="showItems('ore')">Ore</button>
     </div>
     <div id="crops-section" class="hide">
-      <div class="item-box">
-        <span class="item-name">Wheat</span>
-        <span class="coin-value">Coin Value: 10</span>
-      </div>
-      <div class="item-box">
-        <span class="item-name">Tomato</span>
-        <span class="coin-value">Coin Value: 15</span>
-      </div>
-      <div class="item-box">
-        <span class="item-name">Carrot</span>
-        <span class="coin-value">Coin Value: 12</span>
-      </div>
-      <div class="item-box">
-        <span class="item-name">Berry</span>
-        <span class="coin-value">Coin Value: 8</span>
-      </div>
-      <div class="item-box">
-        <span class="item-name">Onion</span>
-        <span class="coin-value">Coin Value: 9</span>
-      </div>
-      <div class="item-box">
-        <span class="item-name">Red Flowers</span>
-        <span class="coin-value">Coin Value: 5</span>
-      </div>
-      <div class="item-box">
-        <span class="item-name">Yellow Flowers</span>
-        <span class="coin-value">Coin Value: 5</span>
-      </div>
-      <div class="item-box">
-        <span class="item-name">Blue Flowers</span>
-        <span class="coin-value">Coin Value: 5</span>
-      </div>
-      <div class="item-box">
-        <span class="item-name">Tall Grass</span>
-        <span class="coin-value">Coin Value: 7</span>
-      </div>
+      <!-- Add items for "Crops" -->
     </div>
-    <!-- Add similar sections for other categories -->
+    <div id="blocks-section" class="hide">
+      <div class="item-box">
+        <span class="item-name">Stone</span>
+        <span class="coin-value">Coin Value: X</span>
+      </div>
+      <div class="item-box">
+        <span class="item-name">Stone Brick</span>
+        <span class="coin-value">Coin Value: X</span>
+      </div>
+      <!-- Add other block items -->
+    </div>
+    <div id="totems-section" class="hide">
+      <!-- Add items for "Totems" -->
+    </div>
+    <div id="industrial-section" class="hide">
+      <!-- Add items for "Industrial" -->
+    </div>
+    <div id="stations-section" class="hide">
+      <!-- Add items for "Stations" -->
+    </div>
+    <div id="cooking-section" class="hide">
+      <!-- Add items for "Cooking" -->
+    </div>
+    <div id="seeds-section" class="hide">
+      <!-- Add items for "Seeds" -->
+    </div>
+    <div id="slime-island-section" class="hide">
+      <!-- Add items for "Slime Island" -->
+    </div>
+    <div id="tools-section" class="hide">
+      <!-- Add items for "Tools" -->
+    </div>
+    <div id="ore-section" class="hide">
+      <!-- Add items for "Ore" -->
+    </div>
   </div>
 
   <script>
@@ -158,9 +157,10 @@
       for (var i = 0; i < sections.length; i++) {
         sections[i].classList.add('hide');
       }
-      var section = document.getElementById(category + '-section');
+        var section = document.getElementById(category + '-section');
       section.classList.remove('hide');
     }
   </script>
 </body>
 </html>
+
