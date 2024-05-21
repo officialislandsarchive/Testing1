@@ -40,94 +40,88 @@
       color: #333;
     }
 
-    h2 {
-      color: #555;
-      margin-top: 20px;
+    .tab {
+      display: none;
     }
 
-    ul {
-      list-style-type: none;
-      padding: 0;
-    }
-
-    li {
-      margin-bottom: 10px;
+    .active {
+      display: block;
     }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>Price Guide</h1>
-    
-    <h2>Crops</h2>
-    <ul>
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <!-- Add more items as needed -->
-    </ul>
 
-    <h2>Blocks</h2>
-    <ul>
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <!-- Add more items as needed -->
-    </ul>
+    <!-- Tab buttons -->
+    <div class="tab-buttons">
+      <button onclick="openTab('crops')">Crops</button>
+      <button onclick="openTab('blocks')">Blocks</button>
+      <button onclick="openTab('totems')">Totems</button>
+      <!-- Add more buttons for other categories -->
+    </div>
 
-    <h2>Totems</h2>
-    <ul>
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <!-- Add more items as needed -->
-    </ul>
+    <!-- Tab contents -->
+    <div id="crops" class="tab active">
+      <h2>Crops</h2>
+      <ul id="crops-list">
+        <!-- Items will be added dynamically here -->
+      </ul>
+    </div>
 
-    <h2>Industrial</h2>
-    <ul>
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <!-- Add more items as needed -->
-    </ul>
+    <div id="blocks" class="tab">
+      <h2>Blocks</h2>
+      <ul id="blocks-list">
+        <!-- Items will be added dynamically here -->
+      </ul>
+    </div>
 
-    <h2>Stations</h2>
-    <ul>
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <!-- Add more items as needed -->
-    </ul>
+    <div id="totems" class="tab">
+      <h2>Totems</h2>
+      <ul id="totems-list">
+        <!-- Items will be added dynamically here -->
+      </ul>
+    </div>
 
-    <h2>Cooking</h2>
-    <ul>
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <!-- Add more items as needed -->
-    </ul>
+    <!-- Add more tab contents for other categories -->
 
-    <h2>Seeds</h2>
-    <ul>
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <!-- Add more items as needed -->
-    </ul>
-
-    <h2>Slime Island</h2>
-    <ul>
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <!-- Add more items as needed -->
-    </ul>
-
-    <h2>Tools</h2>
-    <ul>
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <!-- Add more items as needed -->
-    </ul>
-
-    <h2>Ore</h2>
-    <ul>
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <!-- Add more items as needed -->
-    </ul>
+    <!-- Add item form -->
+    <form id="add-item-form">
+      <label for="category">Select a category:</label>
+      <select id="category">
+        <option value="crops">Crops</option>
+        <option value="blocks">Blocks</option>
+        <option value="totems">Totems</option>
+        <!-- Add options for other categories -->
+      </select>
+      <label for="item">Item:</label>
+      <input type="text" id="item" required>
+      <button type="submit">Add Item</button>
+    </form>
   </div>
+
+  <script>
+    function openTab(tabName) {
+      // Hide all tabs
+      var tabs = document.getElementsByClassName('tab');
+      for (var i = 0; i < tabs.length; i++) {
+        tabs[i].classList.remove('active');
+      }
+
+      // Show the selected tab
+      document.getElementById(tabName).classList.add('active');
+    }
+
+    document.getElementById('add-item-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      var category = document.getElementById('category').value;
+      var item = document.getElementById('item').value;
+      var itemList = document.getElementById(category + '-list');
+      var li = document.createElement('li');
+      li.textContent = item;
+      itemList.appendChild(li);
+      document.getElementById('item').value = ''; // Clear input field after adding item
+    });
+  </script>
 </body>
 </html>
