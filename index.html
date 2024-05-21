@@ -45,8 +45,7 @@
       margin-bottom: 20px;
     }
 
-    .button-container a {
-      display: inline-block;
+    .button-container button {
       margin: 5px;
       padding: 10px 20px;
       font-size: 16px;
@@ -54,10 +53,10 @@
       border-radius: 5px;
       background-color: #4CAF50;
       color: white;
-      text-decoration: none;
+      cursor: pointer;
     }
 
-    .button-container a:hover {
+    .button-container button:hover {
       background-color: #45a049;
     }
   </style>
@@ -66,11 +65,23 @@
   <div class="container">
     <h1>Price Guide</h1>
     <div class="button-container">
-      <a href="crops.html">Crops</a>
-      <a href="blocks.html">Blocks</a>
-      <a href="totems.html">Totems</a>
-      <!-- Add more links for other categories -->
+      <button onclick="goToPage('crops.html')">Crops</button>
+      <button onclick="goToPage('blocks.html')">Blocks</button>
+      <button onclick="goToPage('totems.html')">Totems</button>
+      <button onclick="goToPage('industrial.html')">Industrial</button>
+      <button onclick="goToPage('stations.html')">Stations</button>
+      <button onclick="goToPage('cooking.html')">Cooking</button>
+      <button onclick="goToPage('seeds.html')">Seeds</button>
+      <button onclick="goToPage('slime-island.html')">Slime Island</button>
+      <button onclick="goToPage('tools.html')">Tools</button>
+      <button onclick="goToPage('ore.html')">Ore</button>
     </div>
   </div>
+
+  <script>
+    function goToPage(page) {
+      window.location.href = page;
+    }
+  </script>
 </body>
 </html>
