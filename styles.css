@@ -80,16 +80,16 @@
     cursor: pointer;
 }
 
-.item-box {
+.modal-item {
     border-bottom: 1px solid #ccc;
     padding: 10px 0;
 }
 
-.item-name {
+.modal-item-name {
     font-weight: bold;
 }
 
-.coin-value {
+.modal-coin-value {
     margin-left: 10px;
     color: #007bff;
 }
