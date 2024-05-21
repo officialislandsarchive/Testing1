@@ -1,206 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Price Guide</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #ff7e5f, #feb47b, #ffdfa4);
-      background-size: 600% 600%;
-      animation: gradientAnimation 10s ease infinite;
-    }
-
-    @keyframes gradientAnimation {
-      0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
-      }
-    }
-
-    .container {
-      max-width: 800px;
-      margin: 100px auto;
-      padding: 20px;
-      background-color: rgba(255, 255, 255, 0.95);
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    }
-
-    h1 {
-      text-align: center;
-      color: #333;
-      margin-bottom: 20px;
-    }
-
-    .button-container {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    .button-container button {
-      margin: 10px;
-      padding: 15px 30px;
-      font-size: 18px;
-      border: none;
-      border-radius: 8px;
-      background-color: #4CAF50;
-      color: white;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .button-container button:hover {
-      background-color: #45a049;
-    }
-
-    .button-container button:focus {
-      outline: none;
-    }
-
-    .button-container button:first-child {
-      margin-left: 0;
-    }
-
-    .button-container button:last-child {
-      margin-right: 0;
-    }
-
-    .item-box {
-      border: 2px solid #4CAF50;
-      border-radius: 8px;
-      padding: 10px;
-      margin-bottom: 10px;
-      background-color: #fff;
-    }
-
-    .item-name {
-      font-weight: bold;
-    }
-
-    .coin-value {
-      float: right;
-      color: #555;
-    }
-
-    .hide {
-      display: none;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roblox Game Website</title>
+    <style>
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Price Guide</h1>
-    <div class="button-container">
-      <button onclick="showItems('crops')">Crops</button>
-      <button onclick="showItems('blocks')">Blocks</button>
-      <button onclick="showItems('totems')">Totems</button>
-      <button onclick="showItems('industrial')">Industrial</button>
-      <button onclick="showItems('stations')">Stations</button>
-      <button onclick="showItems('cooking')">Cooking</button>
-      <button onclick="showItems('seeds')">Seeds</button>
-      <button onclick="showItems('slime-island')">Slime Island</button>
-      <button onclick="showItems('tools')">Tools</button>
-      <button onclick="showItems('ore')">Ore</button>
-    </div>
-    <div id="blocks-section" class="hide">
-      <div class="item-box">
-        <span class="item-name">Stone Brick</span>
-        <span class="coin-value">Coin Value: X</span>
-      </div>
-      <div class="item-box">
-        <span class="item-name">Wood</span>
-        <span class="coin-value">Coin Value: X</span>
-      </div>
-      <div class="item-box">
-        <span class="item-name">Wood Plank</span>
-        <span class="coin-value">Coin Value: X</span>
-      </div>
-      <div class="item-box">
-        <span class="item-name">Pine Wood</span>
-        <span class="coin-value">Coin Value: X</span>
-      </div>
-      <div class="item-box">
-        <span class="item-name">Pine Wood Plank</span>
-        <span class="coin-value">Coin Value: X</span>
-      </div>
-      <div class="item-box">
-        <span class="item-name">Grass Block</span>
-        <span class="coin-value">Coin Value: X</span>
-      </div>
-      <div class="item-box">
-        <span class="item-name">Glass Pane</span>
-        <span class="coin-value">Coin Value: X</span>
-      </div>
-      <div class="item-box">
-        <span class="item-name">Glass Pane (Colored)</span>
-        <span class="coin-value">Coin Value: X</span>
-      </div>
-      <div class="item-box">
-        <span class="item-name">Clay</span>
-        <span class="coin-value">Coin Value: X</span>
-      </div>
-      <div class="item-box">
-        <span class="item-name">Clay (Colored)</span>
-        <span class="coin-value">Coin Value: X</span>
-      </div>
-      <div class="item-box">
-        <span class="item-name">Red Rug</span>
-        <span class="coin-value">Coin Value: X</span>
-      </div>
-      <div class="item-box">
-        <span class="item-name">Wood Stairs</span>
-        <span class="coin-value">Coin Value: X</span>
-      </div>
-      <div class="item-box">
-        <span class="item-name">Pine Stairs</span>
-        <span class="coin-value">Coin Value: X</span>
-      </div>
-      <div class="item-box">
-        <span class="item-name">Stone Stairs</span>
-        <span class="coin-value">Coin Value: X</span>
-      </div>
-      <div class="item-box">
-        <span class="item-name">Brick Stairs</span>
-        <span class="coin-value">Coin Value: X</span>
-      </div>
-      <div class="item-box">
-        <span class="item-name">Wood Fence</span>
-        <span class="coin-value">Coin Value: X</span>
-      </div>
-      <div class="item-box">
-        <span class="item-name">Pine Fence</span>
-        <span class="coin-value">Coin Value: X</span>
-      </div>
-      <div class="item-box">
-        <span class="item-name">Ladder</span>
-        <span class="coin-value">Coin Value: X</span>
-      </div>
-      <div class="item-box">
-        <span class="item-name ">Pine Door</span>
-        <span class="coin-value">Coin Value: X</span>
-      </div>
-    </div>
-  </div>
-  <script>
-    function showItems(category) {
-      var sections = document.querySelectorAll('.item-box');
-      sections.forEach(function (section) {
-        if (section.classList.contains(category)) {
-          section.style.display = 'block';
-        } else {
-          section.style.display = 'none';
-        }
-      });
-    }
-  </script>
+
+<a href="#" class="button">Crops</a>
+<a href="#" class="button">Blocks</a>
+<a href="#" class="button">Totems</a>
+<a href="#" class="button">Industrial</a>
+<a href="#" class="button">Stations</a>
+<a href="#" class="button">Cooking</a>
+<a href="#" class="button">Seeds</a>
+<a href="#" class="button">Slime Island</a>
+<a href="#" class="button">Tools</a>
+<a href="#" class="button">Ore</a>
+
 </body>
 </html>
