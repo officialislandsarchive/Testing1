@@ -9,6 +9,7 @@
 <body>
 
 <div class="header">
+    <div class="title">Islands Inventory Guide</div>
     <div class="buttons-container-left">
         <button class="btn" onclick="openModal('crops')">Crops</button>
         <button class="btn" onclick="openModal('blocks')">Blocks</button>
@@ -21,7 +22,6 @@
         <button class="btn" onclick="openModal('tools')">Tools</button>
         <button class="btn" onclick="openModal('ore')">Ore</button>
     </div>
-    <h1 class="title">Islands Inventory Guide</h1>
     <div class="search-container-right">
         <input type="text" id="searchInput" onkeyup="searchItems()" placeholder="Search for items..." class="search-bar">
         <button class="search-btn">Search</button>
@@ -37,153 +37,7 @@
     </div>
 </div>
 
-<script>
-    var modal = document.getElementById('myModal');
-
-    function openModal(category) {
-        modal.style.display = "block";
-        var items = {
-            "crops": [
-                { name: "Wheat", value: "10" },
-                { name: "Tomato", value: "15" },
-                { name: "Carrot", value: "20" },
-                { name: "Berry", value: "25" },
-                { name: "Onion", value: "30" },
-                { name: "Red Flowers", value: "35" },
-                { name: "Yellow Flowers", value: "40" },
-                { name: "Blue Flowers", value: "45" },
-                { name: "Tall Grass", value: "50" }
-            ],
-            "blocks": [
-                { name: "Stone Brick", value: "10" },
-                { name: "Wood", value: "15" },
-                { name: "Wood Plank", value: "20" },
-                { name: "Pine Wood", value: "25" },
-                { name: "Pine Wood Plank", value: "30" },
-                { name: "Grass Block", value: "35" },
-                { name: "Glass Pane", value: "40" },
-                { name: "Glass Pane (Colored)", value: "45" },
-                { name: "Clay", value: "50" },
-                { name: "Clay (Colored)", value: "55" },
-                { name: "Red Rug", value: "60" },
-                { name: "Wood Stairs", value: "65" },
-                { name: "Pine Stairs", value: "70" },
-                { name: "Stone Stairs", value: "75" },
-                { name: "Brick Stairs", value: "80" },
-                { name: "Wood Fence", value: "85" },
-                { name: "Pine Fence", value: "90" },
-                { name: "Ladder", value: "95" },
-                { name: "Pine Door", value: "100" }
-            ],
-            "totems": [
-                { name: "Stone Totem", value: "10" },
-                { name: "Coal Totem", value: "15" },
-                { name: "Iron Totem", value: "20" },
-                { name: "Clay Totem", value: "25" },
-                { name: "Wheat Totem", value: "30" },
-                { name: "Tomato Totem", value: "35" },
-                { name: "Carrot Totem", value: "40" },
-                { name: "Onion Totem", value: "45" }
-            ],
-            "industrial": [
-                { name: "Medium Chest", value: "10" },
-                { name: "Steel Rod", value: "15" },
-                { name: "Conveyor Belt", value: "20" },
-                { name: "Left Conveyor", value: "25" },
-                { name: "Right Conveyor", value: "30" },
-                { name: "Industrial Chest", value: "35" },
-                { name: "Industrial Oven", value: "40" },
-                { name: "Industrial Sawmill", value: "45" },
-                { name: "Industrial Smelter", value: "50" }
-            ],
-            "stations": [
-                { name: "Workbench Tier 1", value: "10" },
-                { name: "Workbench Tier 2", value: "15" },
-                { name: "Anvil", value: "20" },
-                { name: "Sawmill", value: "25" },
-                { name: "Stonecutter", value: "30" },
-                { name: "Coloring Station", value: "35" },
-                { name: "Campfire", value: "40" },
-                { name: "Cooking Table", value: "45" },
-                { name: "Floral Bench", value: "50" },
-                { name: "Small Furnace", value: "55" },
-                { name: "Small Chest", value: "60" }
-            ],
-            "cooking": [
-                { name: "Dough", value: "10" },
-                { name: "Berry Dough", value: "15" },
-                { name: "Bread", value: "20" },
-                { name: "Berry Pie", value: "25" }
-            ],
-            "seeds": [
-                { name: "Wheat Seeds", value: "10" },
-                { name: "Tomato Seeds", value: "15" },
-                { name: "Carrot Seeds", value: "20" },
-                { name: "Berry Seeds", value: "25" },
-                { name: "Onion Seeds", value: "30" },
-                { name: "Red Flower Seeds", value: "35" },
-                { name: "Yellow Flower Seeds", value: "40" },
-                { name: "Blue Flower Seeds", value: "45" },
-                { name: "Tall Grass Seeds", value: "50" }
-            ],
-            "slimeIsland": [
-                { name: "Buffalkor Key", value: "10" },
-                { name: "Slime Ball", value: "15" }
-            ],
-            "tools": [
-                { name: "Wooden Axe", value: "10" },
-                { name: "Wooden Pickaxe", value: "15" },
-                { name: "Stone Axe", value: "20" },
-                { name: "Stone Pickaxe", value: "25" },
-                { name: "Iron Axe", value: "30" },
-                { name: "Iron Pickaxe", value: "35" }
-            ],
-            "ore": [
-                { name: "Iron", value: "10" },
-                { name: "Coal", value: "15" },
-                { name: "Gold", value: "20" }
-            ]
-        };
-
-        document.getElementById('modalTitle').innerText = category.charAt(0).toUpperCase() + category.slice(1);
-        var modalItems = document.getElementById('modalItems');
-        modalItems.innerHTML = '';
-        items[category].forEach(function(item) {
-            var itemBox = document.createElement('div');
-            itemBox.className = 'item-box';
-            itemBox.innerHTML = '<span class="item-name">' + item.name + '</span> - <span class="coin-value">' + item.value + ' coins</span>';
-            modalItems.appendChild(itemBox);
-        });
-    }
-
-    function closeModal() {
-        modal.style.display = "none";
-    }
-
-    function searchItems() {
-        var input, filter, modalItems, itemBox, itemName, i, txtValue;
-        input = document.getElementById('searchInput');
-        filter = input.value.toLowerCase();
-        modalItems = document.getElementById('modalItems');
-        itemBox = modalItems.getElementsByClassName('item-box');
-
-        for (i = 0; i < itemBox.length; i++) {
-            itemName = itemBox[i].getElementsByClassName('item-name')[0];
-            txtValue = itemName.textContent || itemName.innerText;
-            if (txtValue.toLowerCase().indexOf(filter) > -1) {
-                itemBox[i].style.display = "";
-            } else {
-                itemBox[i].style.display = "none";
-            }
-        }
-    }
-
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
