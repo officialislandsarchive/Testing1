@@ -73,28 +73,77 @@
     .button-container button:last-child {
       margin-right: 0;
     }
+
+    .item-box {
+      border: 2px solid #4CAF50;
+      border-radius: 8px;
+      padding: 10px;
+      margin-bottom: 10px;
+      background-color: #fff;
+    }
+
+    .item-name {
+      font-weight: bold;
+    }
+
+    .coin-value {
+      float: right;
+      color: #555;
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>Price Guide</h1>
     <div class="button-container">
-      <button onclick="goToPage('crops.html')">Crops</button>
-      <button onclick="goToPage('blocks.html')">Blocks</button>
-      <button onclick="goToPage('totems.html')">Totems</button>
-      <button onclick="goToPage('industrial.html')">Industrial</button>
-      <button onclick="goToPage('stations.html')">Stations</button>
-      <button onclick="goToPage('cooking.html')">Cooking</button>
-      <button onclick="goToPage('seeds.html')">Seeds</button>
-      <button onclick="goToPage('slime-island.html')">Slime Island</button>
-      <button onclick="goToPage('tools.html')">Tools</button>
-      <button onclick="goToPage('ore.html')">Ore</button>
+      <button onclick="showItems('crops')">Crops</button>
+      <!-- Add buttons for other categories -->
+    </div>
+    <div id="crops-section" style="display: none;">
+      <div class="item-box">
+        <span class="item-name">Wheat</span>
+        <span class="coin-value">Coin Value: 10</span>
+      </div>
+      <div class="item-box">
+        <span class="item-name">Tomato</span>
+        <span class="coin-value">Coin Value: 15</span>
+      </div>
+      <div class="item-box">
+        <span class="item-name">Carrot</span>
+        <span class="coin-value">Coin Value: 12</span>
+      </div>
+      <div class="item-box">
+        <span class="item-name">Berry</span>
+        <span class="coin-value">Coin Value: 8</span>
+      </div>
+      <div class="item-box">
+        <span class="item-name">Onion</span>
+        <span class="coin-value">Coin Value: 9</span>
+      </div>
+      <div class="item-box">
+        <span class="item-name">Red Flowers</span>
+        <span class="coin-value">Coin Value: 5</span>
+      </div>
+      <div class="item-box">
+        <span class="item-name">Yellow Flowers</span>
+        <span class="coin-value">Coin Value: 5</span>
+      </div>
+      <div class="item-box">
+        <span class="item-name">Blue Flowers</span>
+        <span class="coin-value">Coin Value: 5</span>
+      </div>
+      <div class="item-box">
+        <span class="item-name">Tall Grass</span>
+        <span class="coin-value">Coin Value: 7</span>
+      </div>
     </div>
   </div>
 
   <script>
-    function goToPage(page) {
-      window.location.href = page;
+    function showItems(category) {
+      var section = document.getElementById(category
++ '-section');
+      section.style.display = 'block';
     }
   </script>
 </body>
