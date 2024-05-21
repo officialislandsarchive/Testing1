@@ -8,32 +8,33 @@
 </head>
 <body>
 
-<div id="container">
-    <div class="header">
-        <h1>Islands Inventory Guide</h1>
-    </div>
-
+<div class="container">
+    <h1 class="title">Islands Inventory Guide</h1>
+    
     <div class="search-container">
-        <input type="text" id="searchInput" onkeyup="searchItems()" placeholder="Search for items...">
-        <div class="btn" onclick="openModal('crops')">Crops</div>
-        <div class="btn" onclick="openModal('blocks')">Blocks</div>
-        <div class="btn" onclick="openModal('totems')">Totems</div>
-        <div class="btn" onclick="openModal('industrial')">Industrial</div>
-        <div class="btn" onclick="openModal('stations')">Stations</div>
-        <div class="btn" onclick="openModal('cooking')">Cooking</div>
-        <div class="btn" onclick="openModal('seeds')">Seeds</div>
-        <div class="btn" onclick="openModal('slimeIsland')">Slime Island</div>
-        <div class="btn" onclick="openModal('tools')">Tools</div>
-        <div class="btn" onclick="openModal('ore')">Ore</div>
+        <input type="text" id="searchInput" onkeyup="searchItems()" placeholder="Search for items..." class="search-bar">
+        <button class="search-btn">Search</button>
     </div>
 
-    <!-- Modal -->
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h2 style="text-align: center;" id="modalTitle"></h2>
-            <div id="modalItems" class="modal-content">
-            </div>
+    <div class="buttons-container">
+        <button class="btn" onclick="openModal('crops')">Crops</button>
+        <button class="btn" onclick="openModal('blocks')">Blocks</button>
+        <button class="btn" onclick="openModal('totems')">Totems</button>
+        <button class="btn" onclick="openModal('industrial')">Industrial</button>
+        <button class="btn" onclick="openModal('stations')">Stations</button>
+        <button class="btn" onclick="openModal('cooking')">Cooking</button>
+        <button class="btn" onclick="openModal('seeds')">Seeds</button>
+        <button class="btn" onclick="openModal('slimeIsland')">Slime Island</button>
+        <button class="btn" onclick="openModal('tools')">Tools</button>
+        <button class="btn" onclick="openModal('ore')">Ore</button>
+    </div>
+</div>
+
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 style="text-align: center;" id="modalTitle"></h2>
+        <div id="modalItems" class="modal-content">
         </div>
     </div>
 </div>
