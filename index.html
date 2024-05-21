@@ -116,82 +116,90 @@
         <span class="item-name">Stone Brick</span>
         <span class="coin-value">Coin Value: X</span>
       </div>
-      <!-- Add other block items here -->
-    </div>
-
-    <div id="totems-section" class="hide">
       <div class="item-box">
-        <span class="item-name">Stone Totem</span>
+        <span class="item-name">Wood</span>
         <span class="coin-value">Coin Value: X</span>
       </div>
-      <!-- Add other totem items here -->
-    </div>
-
-    <div id="industrial-section" class="hide">
       <div class="item-box">
-        <span class="item-name">Medium Chest</span>
+        <span class="item-name">Wood Plank</span>
         <span class="coin-value">Coin Value: X</span>
       </div>
-      <!-- Add other industrial items here -->
-    </div>
-
-    <div id="stations-section" class="hide">
       <div class="item-box">
-        <span class="item-name">Workbench Tier 1</span>
+        <span class="item-name">Pine Wood</span>
         <span class="coin-value">Coin Value: X</span>
       </div>
-      <!-- Add other station items here -->
-    </div>
-
-    <div id="cooking-section" class="hide">
       <div class="item-box">
-        <span class="item-name">Dough</span>
+        <span class="item-name">Pine Wood Plank</span>
         <span class="coin-value">Coin Value: X</span>
       </div>
-      <!-- Add other cooking items here -->
-    </div>
-
-    <div id="seeds-section" class="hide">
       <div class="item-box">
-        <span class="item-name">Wheat Seeds</span>
+        <span class="item-name">Grass Block</span>
         <span class="coin-value">Coin Value: X</span>
       </div>
-      <!-- Add other seed items here -->
-    </div>
-
-    <div id="slime-island-section" class="hide">
       <div class="item-box">
-        <span class="item-name">Green Slime Balls</span>
+        <span class="item-name">Glass Pane</span>
         <span class="coin-value">Coin Value: X</span>
       </div>
-      <!-- Add other slime island items here -->
-    </div>
-
-    <div id="tools-section" class="hide">
       <div class="item-box">
-        <span class="item-name">Wooden Axe</span>
+        <span class="item-name">Glass Pane (Colored)</span>
         <span class="coin-value">Coin Value: X</span>
       </div>
-      <!-- Add other tool items here -->
-    </div>
-
-    <div id="ore-section" class="hide">
       <div class="item-box">
-        <span class="item-name">Coal</span>
+        <span class="item-name">Clay</span>
         <span class="coin-value">Coin Value: X</span>
       </div>
-      <!-- Add other ore items here -->
+      <div class="item-box">
+        <span class="item-name">Clay (Colored)</span>
+        <span class="coin-value">Coin Value: X</span>
+      </div>
+      <div class="item-box">
+        <span class="item-name">Red Rug</span>
+        <span class="coin-value">Coin Value: X</span>
+      </div>
+      <div class="item-box">
+        <span class="item-name">Wood Stairs</span>
+        <span class="coin-value">Coin Value: X</span>
+      </div>
+      <div class="item-box">
+        <span class="item-name">Pine Stairs</span>
+        <span class="coin-value">Coin Value: X</span>
+      </div>
+      <div class="item-box">
+        <span class="item-name">Stone Stairs</span>
+        <span class="coin-value">Coin Value: X</span>
+      </div>
+      <div class="item-box">
+        <span class="item-name">Brick Stairs</span>
+        <span class="coin-value">Coin Value: X</span>
+      </div>
+      <div class="item-box">
+        <span class="item-name">Wood Fence</span>
+        <span class="coin-value">Coin Value: X</span>
+      </div>
+      <div class="item-box">
+        <span class="item-name">Pine Fence</span>
+        <span class="coin-value">Coin Value: X</span>
+      </div>
+      <div class="item-box">
+        <span class="item-name">Ladder</span>
+        <span class="coin-value">Coin Value: X</span>
+      </div>
+      <div class="item-box">
+        <span class="item-name ">Pine Door</span>
+        <span class="coin-value">Coin Value: X</span>
+      </div>
     </div>
   </div>
-
   <script>
     function showItems(category) {
-      var sections = document.querySelectorAll('.container > div[id$="-section"]');
-      for (var i = 0; i < sections.length; i++) {
-        sections[i].classList.add('hide');
-      }
-      var section = document.getElementById(category + '-section');
-      section.classList.remove('hide');
+      var sections = document.querySelectorAll('.item-box');
+      sections.forEach(function (section) {
+        if (section.classList.contains(category)) {
+          section.style.display = 'block';
+        } else {
+          section.style.display = 'none';
+        }
+      });
     }
   </script>
 </body>
