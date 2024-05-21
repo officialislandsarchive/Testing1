@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roblox Game Price Guide</title>
+    <title>Islands Archive Price Guide</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -30,7 +30,7 @@
             display: inline-block;
             padding: 10px 20px;
             margin: 10px;
-            background-color: #4CAF50; /* Green */
+            background-color: #4CAF50; 
             border: none;
             color: white;
             text-align: center;
@@ -42,27 +42,27 @@
         }
 
         .button:hover {
-            background-color: #45a049; /* Darker Green */
+            background-color: #45a049; 
         }
 
-        /* Modal (background) */
+        
         .modal {
-            display: none; /* Hidden by default */
-            position: fixed; /* Stay in place */
-            z-index: 1; /* Sit on top */
+            display: none; 
+            position: fixed; 
+            z-index: 1; 
             left: 0;
             top: 0;
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
-            overflow: auto; /* Enable scroll if needed */
-            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0,0,0,0.4); 
             padding-top: 60px;
         }
 
-        /* Modal Content/Box */
+        
         .modal-content {
             background-color: #fefefe;
-            margin: 5% auto; /* 15% from the top and centered */
+            margin: 5% auto; 
             padding: 20px;
             border-radius: 10px;
             max-width: 600px;
@@ -70,7 +70,7 @@
             position: relative;
         }
 
-        /* The Close Button */
+        
         .close {
             color: #aaa;
             position: absolute;
@@ -106,7 +106,7 @@
             font-weight: bold;
         }
 
-        /* Search Bar Styles */
+       
         .search-container {
             text-align: center;
             margin-bottom: 20px;
@@ -132,12 +132,12 @@
 <div id="container">
     <h1 style="text-align: center;">Roblox Game Price Guide</h1>
     
-    <!-- Search Bar -->
+  
     <div class="search-container">
         <input type="text" id="searchInput" onkeyup="searchItems()" placeholder="Search for items...">
     </div>
 
-    <!-- Buttons -->
+   
     <div style="text-align: center;">
         <a href="#" class="button" onclick="openModal('crops')">Crops</a>
         <a href="#" class="button" onclick="openModal('blocks')">Blocks</a>
@@ -152,23 +152,19 @@
     </div>
 </div>
 
-<!-- The Modal -->
+
 <div id="myModal" class="modal">
-    <!-- Modal content -->
     <div class="modal-content">
         <span class="close" onclick="closeModal()">&times;</span>
         <h2 style="text-align: center;" id="modalTitle"></h2>
         <div id="modalItems" class="modal-content">
-            <!-- Items will be added here -->
         </div>
     </div>
 </div>
 
 <script>
-    // Get the modal
     var modal = document.getElementById('myModal');
 
-    // Function to open the modal and populate items
     function openModal(category) {
         modal.style.display = "block";
         var items = {
@@ -302,19 +298,16 @@
     document.getElementById("modalTitle").textContent = category.charAt(0).toUpperCase() + category.slice(1); // Capitalize first letter
 }
 
-// Function to close the modal
 function closeModal() {
     modal.style.display = "none";
 }
 
-// Close the modal when clicked outside of it
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
 }
 
-// Function to search items
 function searchItems() {
     var input, filter, ul, li, span, i, txtValue;
     input = document.getElementById('searchInput');
