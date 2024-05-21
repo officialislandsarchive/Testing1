@@ -44,24 +44,13 @@
       color: #555;
     }
 
-    .button-container {
-      text-align: center;
-      margin-bottom: 20px;
+    .list {
+      list-style-type: none;
+      padding: 0;
     }
 
-    .button-container button {
-      margin: 5px;
-      padding: 10px 20px;
-      font-size: 16px;
-      border: none;
-      border-radius: 5px;
-      background-color: #4CAF50;
-      color: white;
-      cursor: pointer;
-    }
-
-    .button-container button:hover {
-      background-color: #45a049;
+    .list-item {
+      margin-bottom: 5px;
     }
   </style>
 </head>
@@ -69,63 +58,44 @@
   <div class="container">
     <h1>Price Guide</h1>
     <div class="button-container">
-      <button onclick="scrollToSection('crops')">Crops</button>
-      <button onclick="scrollToSection('blocks')">Blocks</button>
-      <button onclick="scrollToSection('totems')">Totems</button>
-      <button onclick="scrollToSection('industrial')">Industrial</button>
-      <button onclick="scrollToSection('stations')">Stations</button>
-      <button onclick="scrollToSection('cooking')">Cooking</button>
-      <button onclick="scrollToSection('seeds')">Seeds</button>
-      <button onclick="scrollToSection('slime-island')">Slime Island</button>
-      <button onclick="scrollToSection('tools')">Tools</button>
-      <button onclick="scrollToSection('ore')">Ore</button>
+      <button onclick="showNumbers('crops')">Crops</button>
+      <button onclick="showNumbers('blocks')">Blocks</button>
+      <button onclick="showNumbers('totems')">Totems</button>
+      <!-- Add more buttons for other categories -->
     </div>
-    <div id="crops">
+    <div id="crops" class="section" style="display:none;">
       <h2>Crops</h2>
-      <p>List of crops...</p>
+      <ul class="list" id="crops-list"></ul>
     </div>
-    <div id="blocks">
+    <div id="blocks" class="section" style="display:none;">
       <h2>Blocks</h2>
-      <p>List of blocks...</p>
+      <ul class="list" id="blocks-list"></ul>
     </div>
-    <div id="totems">
+    <div id="totems" class="section" style="display:none;">
       <h2>Totems</h2>
-      <p>List of totems...</p>
+      <ul class="list" id="totems-list"></ul>
     </div>
-    <div id="industrial">
-      <h2>Industrial</h2>
-      <p>List of industrial items...</p>
-    </div>
-    <div id="stations">
-      <h2>Stations</h2>
-      <p>List of stations...</p>
-    </div>
-    <div id="cooking">
-      <h2>Cooking</h2>
-      <p>List of cooking items...</p>
-    </div>
-    <div id="seeds">
-      <h2>Seeds</h2>
-      <p>List of seeds...</p>
-    </div>
-    <div id="slime-island">
-      <h2>Slime Island</h2>
-      <p>List of items from Slime Island...</p>
-    </div>
-    <div id="tools">
-      <h2>Tools</h2>
-      <p>List of tools...</p>
-    </div>
-    <div id="ore">
-      <h2>Ore</h2>
-      <p>List of ore...</p>
-    </div>
+    <!-- Add more sections for other categories -->
   </div>
 
   <script>
-    function scrollToSection(sectionId) {
+    function showNumbers(sectionId) {
       var section = document.getElementById(sectionId);
-      section.scrollIntoView({ behavior: 'smooth' });
+      var list = section.querySelector('.list');
+
+      // Clear existing list items
+      list.innerHTML = '';
+
+      // Generate and display numbers
+      for (var i = 1; i <= 10; i++) {
+        var listItem = document.createElement('li');
+        listItem.textContent = i;
+        listItem.classList.add('list-item');
+        list.appendChild(listItem);
+      }
+
+      // Show the section
+      section.style.display = 'block';
     }
   </script>
 </body>
