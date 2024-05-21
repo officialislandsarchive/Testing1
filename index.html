@@ -90,6 +90,10 @@
       float: right;
       color: #555;
     }
+
+    .hide {
+      display: none;
+    }
   </style>
 </head>
 <body>
@@ -101,7 +105,7 @@
       <button onclick="showItems('totems')">Totems</button>
       <!-- Add buttons for other categories -->
     </div>
-    <div id="crops-section" style="display: none;">
+    <div id="crops-section" class="hide">
       <div class="item-box">
         <span class="item-name">Wheat</span>
         <span class="coin-value">Coin Value: 10</span>
@@ -143,12 +147,12 @@
 
   <script>
     function showItems(category) {
-      var section = document.getElementById(category + '-section');
-      var otherCategories = document.querySelectorAll('.button-container button');
-      for (var i = 0; i < otherCategories.length; i++) {
-        otherCategories[i].style.display = 'none';
+      var sections = document.querySelectorAll('.container > div[id$="-section"]');
+      for (var i = 0; i < sections.length; i++) {
+        sections[i].classList.add('hide');
       }
-      section.style.display = 'block';
+      var section = document.getElementById(category + '-section');
+      section.classList.remove('hide');
     }
   </script>
 </body>
