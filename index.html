@@ -8,14 +8,8 @@
 </head>
 <body>
 
-<div class="container">
-    <h1 class="title">Islands Inventory Guide</h1>
-    
-    <div class="search-container">
-        <input type="text" id="searchInput" onkeyup="searchItems()" placeholder="Search for items..." class="search-bar">
-        <button class="search-btn">Search</button>
-    </div>
-
+<div class="header">
+    <div class="title">Islands Inventory Guide</div>
     <div class="buttons-container">
         <button class="btn" onclick="openModal('crops')">Crops</button>
         <button class="btn" onclick="openModal('blocks')">Blocks</button>
@@ -27,6 +21,10 @@
         <button class="btn" onclick="openModal('slimeIsland')">Slime Island</button>
         <button class="btn" onclick="openModal('tools')">Tools</button>
         <button class="btn" onclick="openModal('ore')">Ore</button>
+    </div>
+    <div class="search-container">
+        <input type="text" id="searchInput" onkeyup="searchItems()" placeholder="Search for items..." class="search-bar">
+        <button class="search-btn">Search</button>
     </div>
 </div>
 
