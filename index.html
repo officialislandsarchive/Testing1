@@ -97,6 +97,8 @@
     <h1>Price Guide</h1>
     <div class="button-container">
       <button onclick="showItems('crops')">Crops</button>
+      <button onclick="showItems('blocks')">Blocks</button>
+      <button onclick="showItems('totems')">Totems</button>
       <!-- Add buttons for other categories -->
     </div>
     <div id="crops-section" style="display: none;">
@@ -141,8 +143,11 @@
 
   <script>
     function showItems(category) {
-      var section = document.getElementById(category
-+ '-section');
+      var section = document.getElementById(category + '-section');
+      var otherCategories = document.querySelectorAll('.button-container button');
+      for (var i = 0; i < otherCategories.length; i++) {
+        otherCategories[i].style.display = 'none';
+      }
       section.style.display = 'block';
     }
   </script>
