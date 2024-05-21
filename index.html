@@ -40,17 +40,25 @@
       color: #333;
     }
 
-    p {
-      color: #555;
+    .button-container {
+      text-align: center;
+      margin-bottom: 20px;
     }
 
-    .list {
-      list-style-type: none;
-      padding: 0;
+    .button-container a {
+      display: inline-block;
+      margin: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: #4CAF50;
+      color: white;
+      text-decoration: none;
     }
 
-    .list-item {
-      margin-bottom: 5px;
+    .button-container a:hover {
+      background-color: #45a049;
     }
   </style>
 </head>
@@ -58,45 +66,11 @@
   <div class="container">
     <h1>Price Guide</h1>
     <div class="button-container">
-      <button onclick="showNumbers('crops')">Crops</button>
-      <button onclick="showNumbers('blocks')">Blocks</button>
-      <button onclick="showNumbers('totems')">Totems</button>
-      <!-- Add more buttons for other categories -->
+      <a href="crops.html">Crops</a>
+      <a href="blocks.html">Blocks</a>
+      <a href="totems.html">Totems</a>
+      <!-- Add more links for other categories -->
     </div>
-    <div id="crops" class="section" style="display:none;">
-      <h2>Crops</h2>
-      <ul class="list" id="crops-list"></ul>
-    </div>
-    <div id="blocks" class="section" style="display:none;">
-      <h2>Blocks</h2>
-      <ul class="list" id="blocks-list"></ul>
-    </div>
-    <div id="totems" class="section" style="display:none;">
-      <h2>Totems</h2>
-      <ul class="list" id="totems-list"></ul>
-    </div>
-    <!-- Add more sections for other categories -->
   </div>
-
-  <script>
-    function showNumbers(sectionId) {
-      var section = document.getElementById(sectionId);
-      var list = section.querySelector('.list');
-
-      // Clear existing list items
-      list.innerHTML = '';
-
-      // Generate and display numbers
-      for (var i = 1; i <= 10; i++) {
-        var listItem = document.createElement('li');
-        listItem.textContent = i;
-        listItem.classList.add('list-item');
-        list.appendChild(listItem);
-      }
-
-      // Show the section
-      section.style.display = 'block';
-    }
-  </script>
 </body>
 </html>
