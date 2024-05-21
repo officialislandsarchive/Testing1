@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f0f0f0;
+            background-color: #f3f3f3;
             margin: 0;
             padding: 0;
             display: flex;
@@ -17,19 +17,20 @@
         }
 
         #container {
-            background-color: #ffffff;
+            background-color: white;
             border-radius: 10px;
             padding: 20px;
             box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);
-            max-width: 600px;
-            width: 100%;
+            width: 90%;
+            max-width: 800px;
+            position: relative;
         }
 
         .button {
             display: inline-block;
             padding: 10px 20px;
             margin: 10px;
-            background-color: #4CAF50;
+            background-color: #4CAF50; /* Green */
             border: none;
             color: white;
             text-align: center;
@@ -41,44 +42,49 @@
         }
 
         .button:hover {
-            background-color: #45a049;
+            background-color: #45a049; /* Darker Green */
         }
 
-        /* Modal */
+        /* Modal (background) */
         .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
             left: 0;
             top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.6);
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
             padding-top: 60px;
         }
 
+        /* Modal Content/Box */
         .modal-content {
             background-color: #fefefe;
-            margin: 5% auto;
+            margin: 5% auto; /* 15% from the top and centered */
             padding: 20px;
             border-radius: 10px;
-            max-width: 80%;
+            max-width: 600px;
             box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);
             position: relative;
         }
 
+        /* The Close Button */
         .close {
             color: #aaa;
             position: absolute;
             top: 10px;
             right: 10px;
-            font-size: 24px;
+            font-size: 28px;
+            font-weight: bold;
             cursor: pointer;
         }
 
-        .close:hover {
+        .close:hover,
+        .close:focus {
             color: black;
+            text-decoration: none;
         }
 
         .item-box {
@@ -100,51 +106,38 @@
             font-weight: bold;
         }
 
-        /* Tooltips */
-        .tooltip {
-            position: relative;
-            display: inline-block;
-            border-bottom: 1px dotted black;
-        }
-
-        .tooltip .tooltiptext {
-            visibility: hidden;
-            width: 120px;
-            background-color: #555;
-            color: #fff;
+        /* Search Bar Styles */
+        .search-container {
             text-align: center;
-            border-radius: 6px;
-            padding: 5px;
-            position: absolute;
-            z-index: 1;
-            bottom: 125%;
-            left: 50%;
-            margin-left: -60px;
-            opacity: 0;
-            transition: opacity 0.3s;
+            margin-bottom: 20px;
         }
 
-        .tooltip .tooltiptext::after {
-            content: "";
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            margin-left: -5px;
-            border-width: 5px;
-            border-style: solid;
-            border-color: #555 transparent transparent transparent;
+        input[type=text] {
+            width: 50%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            outline: none;
         }
 
-        .tooltip:hover .tooltiptext {
-            visibility: visible;
-            opacity: 1;
+        input[type=text]:focus {
+            border-color: #4CAF50;
         }
     </style>
 </head>
 <body>
 
 <div id="container">
-    <h1 style="text-align: center; color: #4CAF50;">Roblox Game Price Guide</h1>
+    <h1 style="text-align: center;">Roblox Game Price Guide</h1>
+    
+    <!-- Search Bar -->
+    <div class="search-container">
+        <input type="text" id="searchInput" onkeyup="searchItems()" placeholder="Search for items...">
+    </div>
+
+    <!-- Buttons -->
     <div style="text-align: center;">
         <a href="#" class="button" onclick="openModal('crops')">Crops</a>
         <a href="#" class="button" onclick="openModal('blocks')">Blocks</a>
@@ -164,7 +157,7 @@
     <!-- Modal content -->
     <div class="modal-content">
         <span class="close" onclick="closeModal()">&times;</span>
-        <h2 style="text-align: center; color: #4CAF50;" id="modalTitle"></h2>
+        <h2 style="text-align: center;" id="modalTitle"></h2>
         <div id="modalItems" class="modal-content">
             <!-- Items will be added here -->
         </div>
@@ -179,142 +172,24 @@
     function openModal(category) {
         modal.style.display = "block";
         var items = {
-            "crops": [
-                { name: "Wheat", value: "10", tooltip: "Basic crop" },
-                { name: "Tomato", value: "15", tooltip: "Juicy and red" },
-                { name: "Carrot", value: "20", tooltip: "Orange and crunchy" },
-                { name: "Berry", value: "25", tooltip: "Sweet and delicious" },
-                { name: "Onion", value: "30", tooltip: "Makes you cry!" },
-                { name: "Red Flowers", value: "35", tooltip: "Adds color to your farm" },
-                { name: "Yellow Flowers", value: "40", tooltip: "Bright and sunny" },
-                { name: "Blue Flowers", value: "45", tooltip: "Cool and calming" },
-                { name: "Tall Grass", value: "50", tooltip: "Tall and green" }
-            ],
-            "blocks": [
-                { name: "Stone Brick", value: "10" },
-                { name: "Wood", value: "15" },
-                { name: "Wood Plank", value: "20" },
-                { name: "Pine Wood", value: "25" },
-                { name: "Pine Wood Plank", value: "30" },
-                { name: "Grass Block", value: "35" },
-                { name: "Glass Pane", value: "40" },
-                { name: "Glass Pane (Colored)", value: "45" },
-                { name: "Clay", value: "50" },
-                { name: "Clay (Colored)", value: "55" },
-                { name: "Red Rug", value: "60" },
-                { name: "Wood Stairs", value: "65" },
-                { name: "Pine Stairs", value: "70" },
-                { name: "Stone Stairs", value: "75" },
-                { name: "Brick Stairs", value: "80" },
-                { name: "Wood Fence", value: "85" },
-                { name: "Pine Fence", value: "90" },
-                { name: "Ladder", value: "95" },
-                { name: "Pine Door", value: "100" }
-            ],
-            "totems": [
-                { name: "Stone Totem", value: "10" },
-                { name: "Coal Totem", value: "15" },
-                { name: "Iron Totem", value: "20" },
-                { name: "Clay Totem", value: "25" },
-                { name: "Wheat Totem", value: "30" },
-                { name: "Tomato Totem", value: "35" },
-                { name: "Carrot Totem", value: "40" },
-                { name: "Onion Totem", value: "45" }
-            ],
-            "industrial": [
-                { name: "Medium Chest", value: "10" },
-                { name: "Steel Rod", value: "15" },
-                { name: "Conveyor Belt", value: "20" },
-                { name: "Left Conveyor", value: "25" },
-                { name: "Right Conveyor", value: "30" },
-                { name: "Industrial Chest", value: "35" },
-                { name: "Industrial Oven", value: "40" },
-                { name: "Industrial Sawmill", value: "45" },
-                { name: "Industrial Smelter", value: "50" }
-            ],
-            "stations": [
-                { name: "Workbench Tier 1", value: "10" },
-                { name: "Workbench Tier 2", value: "15" },
-                { name: "Anvil", value: "20" },
-                { name: "Sawmill", value: "25" },
-                { name: "Stonecutter", value: "30" },
-                { name: "Coloring Station", value: "35" },
-                { name: "Campfire", value: "40" },
-                { name: "Cooking Table", value: "45" },
-                { name: "Floral Bench", value: "50" },
-                { name: "Small Furnace", value: "55" },
-                { name: "Small Chest", value: "60" }
-            ],
-            "cooking": [
-                { name: "Dough", value: "10" },
-                { name: "Berry Dough", value: "15" },
-                { name: "Bread", value: "20" },
-                { name: "Berry Pie", value: "25" }
-            ],
-            "seeds": [
-                { name: "Wheat Seeds", value: "10" },
-                { name: "Tomato Seeds", value: "15" },
-                { name: "Carrot Seeds", value: "20" },
-                { name: "Berry Seeds", value: "25" },
-                { name: "Onion Seeds", value: "30" },
-                { name: "Red Flower Seeds", value: "35" },
-                { name: "Yellow Flower Seeds", value: "40" },
-                { name: "Blue Flower Seeds", value: "45" },
-                { name: "Sapling", value: "50" },
-                { name: "Pine Sapling", value: "55" }
-            ],
-            "slimeIsland": [
-                { name: "Green Slime Balls", value: "10" },
-                { name: "Blue Slime Balls", value: "15" },
-                { name: "Pink Slime Balls", value: "20" },
-                { name: "Green Gear", value: "25" },
-                { name: "Blue Gear", value: "30" },
-                { name: "Pink Gear", value: "35" }
-            ],
-            "tools": [
-                { name: "Wooden Axe", value: "10" },
-                { name: "Wooden Pickaxe", value: "15" },
-                { name: "Wooden Sword", value: "20" },
-                { name: "Plow", value: "25" },
-                { name: "Stone Axe", value: "30" },
-                { name: "Stone Pickaxe", value: "35" },
-                { name: "Iron Axe", value: "40" },
-                { name: "Iron Pickaxe", value: "45" }
-            ],
-            "ore": [
-                { name: "Coal", value: "10" },
-                { name: "Iron Ore", value: "15" },
-                { name: "Iron", value: "20" }
-            ],
+            // Your item data...
         };
         var list = document.getElementById("modalItems");
         list.innerHTML = "";
         items[category].forEach(function(item) {
-            var itemBox =
-document.createElement("div");
+            var itemBox = document.createElement("div");
             itemBox.classList.add("item-box");
 
             var itemName = document.createElement("span");
             itemName.classList.add("item-name");
             itemName.textContent = item.name;
 
-            // Adding tooltips for item details
-            var tooltip = document.createElement("span");
-            tooltip.classList.add("tooltip");
-            var tooltipText = document.createElement("span");
-            tooltipText.classList.add("tooltiptext");
-            tooltipText.textContent = item.tooltip;
-            tooltip.appendChild(tooltipText);
-
             var coinValue = document.createElement("span");
             coinValue.classList.add("coin-value");
             coinValue.textContent = "Coin Value: " + item.value;
 
-            // Appending elements
-            tooltip.appendChild(tooltipText);
             itemBox.appendChild(itemName);
             itemBox.appendChild(coinValue);
-            itemBox.appendChild(tooltip);
             list.appendChild(itemBox);
         });
         document.getElementById("modalTitle").textContent = category.charAt(0).toUpperCase() + category.slice(1); // Capitalize first letter
@@ -331,6 +206,24 @@ document.createElement("div");
             modal.style.display = "none";
         }
     }
+
+    // Function to search items
+function searchItems() {
+    var input, filter, ul, li, span, i, txtValue;
+    input = document.getElementById('searchInput');
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("modalItems");
+    li = ul.getElementsByClassName('item-box');
+    for (i = 0; i < li.length; i++) {
+        span = li[i].getElementsByClassName("item-name")[0];
+        txtValue = span.textContent || span.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
 </script>
 
 </body>
