@@ -4,24 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Islands Inventory Catalog</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #212121;
+            font-family: 'Verdana', sans-serif;
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            background-image: url('your-background-image.jpg'); /* Replace 'your-background-image.jpg' with the URL or path to your background image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
         #container {
-            background-color: #323232;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.4);
+            background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white background for better readability */
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.2);
             width: 90%;
             max-width: 800px;
             position: relative;
@@ -29,22 +31,21 @@
 
         .btn {
             display: inline-block;
-            padding: 14px 28px;
+            padding: 12px 24px;
             margin: 10px;
-            background-color: #ff6f00; 
+            background-color: #007bff; 
             border: none;
             color: white;
             text-align: center;
             text-decoration: none;
-            font-size: 18px;
+            font-size: 16px;
             cursor: pointer;
-            border-radius: 8px;
+            border-radius: 5px;
             transition: background-color 0.3s ease;
-            outline: none;
         }
 
         .btn:hover {
-            background-color: #ff8f00; 
+            background-color: #0056b3; 
         }
 
         
@@ -57,18 +58,18 @@
             width: 100%; 
             height: 100%; 
             overflow: auto; 
-            background-color: rgba(0,0,0,0.6); 
-            padding-top: 80px;
+            background-color: rgba(0,0,0,0.4); 
+            padding-top: 60px;
         }
 
         
         .modal-content {
-            background-color: #fff;
+            background-color: #fefefe;
             margin: 5% auto; 
-            padding: 30px;
-            border-radius: 15px;
+            padding: 20px;
+            border-radius: 10px;
             max-width: 600px;
-            box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.4);
+            box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);
             position: relative;
         }
 
@@ -76,24 +77,24 @@
         .close {
             color: #aaa;
             position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 32px;
+            top: 10px;
+            right: 10px;
+            font-size: 28px;
             font-weight: bold;
             cursor: pointer;
         }
 
         .close:hover,
         .close:focus {
-            color: #333;
+            color: black;
             text-decoration: none;
         }
 
         .item-box {
-            border: 2px solid #ff6f00;
-            border-radius: 10px;
-            padding: 15px;
-            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -101,43 +102,38 @@
 
         .item-name {
             font-weight: bold;
-            margin-right: 20px;
-            color: #fff;
+            margin-right: 10px;
         }
 
         .coin-value {
             font-weight: bold;
-            color: #ffea00;
         }
 
        
         .search-container {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
 
         input[type=text] {
-            width: 60%;
-            padding: 15px;
-            margin: 10px 0;
+            width: 50%;
+            padding: 10px;
+            margin: 8px 0;
             box-sizing: border-box;
-            border: 2px solid #ff6f00;
-            border-radius: 8px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
             outline: none;
-            color: #fff;
-            background-color: #424242;
-            font-size: 16px;
         }
 
         input[type=text]:focus {
-            border-color: #ff8f00;
+            border-color: #007bff;
         }
     </style>
 </head>
 <body>
 
 <div id="container">
-    <h1 style="text-align: center; color: #ffea00;">Islands Inventory Guide</h1>
+    <h1 style="text-align: center;">Islands Inventory Guide</h1>
     
   
     <div class="search-container">
@@ -163,7 +159,7 @@
 <div id="myModal" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal()">&times;</span>
-        <h2 style="text-align: center; color: #ffea00;" id="modalTitle"></h2>
+        <h2 style="text-align: center;" id="modalTitle"></h2>
         <div id="modalItems" class="modal-content">
         </div>
     </div>
@@ -196,141 +192,141 @@
                 { name: "Glass Pane", value: "40" },
                 { name: "Glass Pane (Colored)", value: "45" },
                 { name: "Clay", value: "50" },
-            { name: "Clay (Colored)", value: "55" },
-            { name: "Red Rug", value: "60" },
-            { name: "Wood Stairs", value: "65" },
-            { name: "Pine Stairs", value: "70" },
-            { name: "Stone Stairs", value: "75" },
-            { name: "Brick Stairs", value: "80" },
-            { name: "Wood Fence", value: "85" },
-            { name: "Pine Fence", value: "90" },
-            { name: "Ladder", value: "95" },
-            { name: "Pine Door", value: "100" }
-        ],
-        "totems": [
-            { name: "Stone Totem", value: "10" },
-            { name: "Coal Totem", value: "15" },
-            { name: "Iron Totem", value: "20" },
-            { name: "Clay Totem", value: "25" },
-            { name: "Wheat Totem", value: "30" },
-            { name: "Tomato Totem", value: "35" },
-            { name: "Carrot Totem", value: "40" },
-            { name: "Onion Totem", value: "45" }
-        ],
-        "industrial": [
-            { name: "Medium Chest", value: "10" },
-            { name: "Steel Rod", value: "15" },
-            { name: "Conveyor Belt", value: "20" },
-            { name: "Left Conveyor", value: "25" },
-            { name: "Right Conveyor", value: "30" },
-            { name: "Industrial Chest", value: "35" },
-            { name: "Industrial Oven", value: "40" },
-            { name: "Industrial Sawmill", value: "45" },
-            { name: "Industrial Smelter", value: "50" }
-        ],
-        "stations": [
-            { name: "Workbench Tier 1", value: "10" },
-            { name: "Workbench Tier 2", value: "15" },
-            { name: "Anvil", value: "20" },
-            { name: "Sawmill", value: "25" },
-            { name: "Stonecutter", value: "30" },
-            { name: "Coloring Station", value: "35" },
-            { name: "Campfire", value: "40" },
-            { name: "Cooking Table", value: "45" },
-            { name: "Floral Bench", value: "50" },
-            { name: "Small Furnace", value: "55" },
-            { name: "Small Chest", value: "60" }
-        ],
-        "cooking": [
-            { name: "Dough", value: "10" },
-            { name: "Berry Dough", value: "15" },
-            { name: "Bread", value: "20" },
-            { name: "Berry Pie", value: "25" }
-        ],
-        "seeds": [
-            { name: "Wheat Seeds", value: "10" },
-            { name: "Tomato Seeds", value: "15" },
-            { name: "Carrot Seeds", value: "20" },
-            { name: "Berry Seeds", value: "25" },
-            { name: "Onion Seeds", value: "30" },
-            { name: "Red Flower Seeds", value: "35" },
-            { name: "Yellow Flower Seeds", value: "40" },
-            { name: "Blue Flower Seeds", value: "45" },
-            { name: "Sapling", value: "50" },
-            { name: "Pine Sapling", value: "55" }
-        ],
-        "slimeIsland": [
-            { name: "Green Slime Balls", value: "10" },
-            { name: "Blue Slime Balls", value: "15" },
-            { name: "Pink Slime Balls", value: "20" },
-            { name: "Green Gear", value: "25" },
-            { name: "Blue Gear", value: "30" },
-            { name: "Pink Gear", value: "35" }
-        ],
-        "tools": [
-            { name: "Wooden Axe", value: "10" },
-            { name: "Wooden Pickaxe", value: "15" },
-            { name: "Wooden Sword", value: "20" },
-            { name: "Plow", value: "25" },
-            { name: "Stone Axe", value: "30" },
-            { name: "Stone Pickaxe", value: "35" },
-            { name: "Iron Axe", value: "40" },
-            { name: "Iron Pickaxe", value: "45" }
-        ],
-        "ore": [
-            { name: "Coal", value: "10" },
-            { name: "Iron Ore", value: "15" },
-            { name: "Iron", value: "20" }
-        ]
-    };
+                { name: "Clay (Colored)", value: "55" },
+                { name: "Red Rug", value: "60" },
+                { name: "Wood Stairs", value: "65" },                
+                { name: "Pine Stairs", value: "70" },
+                { name: "Stone Stairs", value: "75" },
+                { name: "Brick Stairs", value: "80" },
+                { name: "Wood Fence", value: "85" },
+                { name: "Pine Fence", value: "90" },
+                { name: "Ladder", value: "95" },
+                { name: "Pine Door", value: "100" }
+            ],
+            "totems": [
+                { name: "Stone Totem", value: "10" },
+                { name: "Coal Totem", value: "15" },
+                { name: "Iron Totem", value: "20" },
+                { name: "Clay Totem", value: "25" },
+                { name: "Wheat Totem", value: "30" },
+                { name: "Tomato Totem", value: "35" },
+                { name: "Carrot Totem", value: "40" },
+                { name: "Onion Totem", value: "45" }
+            ],
+            "industrial": [
+                { name: "Medium Chest", value: "10" },
+                { name: "Steel Rod", value: "15" },
+                { name: "Conveyor Belt", value: "20" },
+                { name: "Left Conveyor", value: "25" },
+                { name: "Right Conveyor", value: "30" },
+                { name: "Industrial Chest", value: "35" },
+                { name: "Industrial Oven", value: "40" },
+                { name: "Industrial Sawmill", value: "45" },
+                { name: "Industrial Smelter", value: "50" }
+            ],
+            "stations": [
+                { name: "Workbench Tier 1", value: "10" },
+                { name: "Workbench Tier 2", value: "15" },
+                { name: "Anvil", value: "20" },
+                { name: "Sawmill", value: "25" },
+                { name: "Stonecutter", value: "30" },
+                { name: "Coloring Station", value: "35" },
+                { name: "Campfire", value: "40" },
+                { name: "Cooking Table", value: "45" },
+                { name: "Floral Bench", value: "50" },
+                { name: "Small Furnace", value: "55" },
+                { name: "Small Chest", value: "60" }
+            ],
+            "cooking": [
+                { name: "Dough", value: "10" },
+                { name: "Berry Dough", value: "15" },
+                { name: "Bread", value: "20" },
+                { name: "Berry Pie", value: "25" }
+            ],
+            "seeds": [
+                { name: "Wheat Seeds", value: "10" },
+                { name: "Tomato Seeds", value: "15" },
+                { name: "Carrot Seeds", value: "20" },
+                { name: "Berry Seeds", value: "25" },
+                { name: "Onion Seeds", value: "30" },
+                { name: "Red Flower Seeds", value: "35" },
+                { name: "Yellow Flower Seeds", value: "40" },
+                { name: "Blue Flower Seeds", value: "45" },
+                { name: "Sapling", value: "50" },
+                { name: "Pine Sapling", value: "55" }
+            ],
+            "slimeIsland": [
+                { name: "Green Slime Balls", value: "10" },
+                { name: "Blue Slime Balls", value: "15" },
+                { name: "Pink Slime Balls", value: "20" },
+                { name: "Green Gear", value: "25" },
+                { name: "Blue Gear", value: "30" },
+                { name: "Pink Gear", value: "35" }
+            ],
+            "tools": [
+                { name: "Wooden Axe", value: "10" },
+                { name: "Wooden Pickaxe", value: "15" },
+                { name: "Wooden Sword", value: "20" },
+                { name: "Plow", value: "25" },
+                { name: "Stone Axe", value: "30" },
+                { name: "Stone Pickaxe", value: "35" },
+                { name: "Iron Axe", value: "40" },
+                { name: "Iron Pickaxe", value: "45" }
+            ],
+            "ore": [
+                { name: "Coal", value: "10" },
+                { name: "Iron Ore", value: "15" },
+                { name: "Iron", value: "20" }
+            ]
+        };
 
-    var list = document.getElementById("modalItems");
-    list.innerHTML = "";
-    items[category].forEach(function(item) {
-        var itemBox = document.createElement("div");
-        itemBox.classList.add("item-box");
+        var list = document.getElementById("modalItems");
+        list.innerHTML = "";
+        items[category].forEach(function(item) {
+            var itemBox = document.createElement("div");
+            itemBox.classList.add("item-box");
 
-        var itemName = document.createElement("span");
-        itemName.classList.add("item-name");
-        itemName.textContent = item.name;
+            var itemName = document.createElement("span");
+            itemName.classList.add("item-name");
+            itemName.textContent = item.name;
 
-        var coinValue = document.createElement("span");
-        coinValue.classList.add("coin-value");
-        coinValue.textContent = "Coin Value: " + item.value;
+            var coinValue = document.createElement("span");
+            coinValue.classList.add("coin-value");
+            coinValue.textContent = "Coin Value: " + item.value;
 
-        itemBox.appendChild(itemName);
-        itemBox.appendChild(coinValue);
-        list.appendChild(itemBox);
-    });
-    document.getElementById("modalTitle").textContent = category.charAt(0).toUpperCase() + category.slice(1); // Capitalize first letter
-}
+            itemBox.appendChild(itemName);
+            itemBox.appendChild(coinValue);
+            list.appendChild(itemBox);
+        });
+        document.getElementById("modalTitle").textContent = category.charAt(0).toUpperCase() + category.slice(1); // Capitalize first letter
+    }
 
-function closeModal() {
-    modal.style.display = "none";
-}
-
-window.onclick = function(event) {
-    if (event.target == modal) {
+    function closeModal() {
         modal.style.display = "none";
     }
-}
 
-function searchItems() {
-    var input, filter, ul, li, span, i, txtValue;
-    input = document.getElementById('searchInput');
-    filter = input.value.toUpperCase();
-    ul = document.getElementById("modalItems");
-    li = ul.getElementsByClassName('item-box');
-    for (i = 0; i < li.length; i++) {
-        span = li[i].getElementsByClassName("item-name")[0];
-        txtValue = span.textContent || span.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            li[i].style.display = "";
-        } else {
-            li[i].style.display = "none";
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
         }
     }
-}
+
+    function searchItems() {
+        var input, filter, ul, li, span, i, txtValue;
+        input = document.getElementById('searchInput');
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("modalItems");
+        li = ul.getElementsByClassName('item-box');
+        for (i = 0; i < li.length; i++) {
+            span = li[i].getElementsByClassName("item-name")[0];
+            txtValue = span.textContent || span.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+            } else {
+                li[i].style.display = "none";
+            }
+        }
+    }
 </script>
 
 </body>
